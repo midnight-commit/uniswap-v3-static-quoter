@@ -7,8 +7,11 @@ import '../UniV3likeQuoterCore.sol';
 
 contract AlgebraQuoterCore is UniV3likeQuoterCore { 
 
-    function getPoolGlobalState(address pool) internal override view returns (GlobalState memory gs) {
-        (gs.startPrice, gs.startTick, gs.fee,,,,) = IAlgebraPool(pool).globalState();
+    function getPoolGlobalState(address pool, bool zeroForOne) internal override view returns (GlobalState memory gs) {
+        uint16 feeZto;
+        uint16 feeOtz;
+        (gs.startPrice, gs.startTick, feeZto, feeOtz,,,,) = IAlgebraPool(pool).globalState();
+        gs.fee = zeroForOne ? feeZto : feeOtz;
     }
 
     function getTickSpacing(

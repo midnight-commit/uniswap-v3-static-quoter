@@ -24,7 +24,8 @@ interface IAlgebraPool {
         returns (
             uint160 price,
             int24 tick,
-            uint16 fee,
+            uint16 feeZto,
+            uint16 feeOtz,
             uint16 timepointIndex,
             uint8 communityFeeToken0,
             uint8 communityFeeToken1,

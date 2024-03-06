@@ -85,7 +85,7 @@ abstract contract UniV3likeQuoterCore {
         int256 amountSpecified,
         uint160 sqrtPriceLimitX96
     ) internal view returns (int24 ts, uint16 fee, SwapState memory state) {
-        GlobalState memory gs = getPoolGlobalState(poolAddress);
+        GlobalState memory gs = getPoolGlobalState(poolAddress, zeroForOne);
         checkSqrtPriceLimitWithinAllowed(zeroForOne, sqrtPriceLimitX96, gs.startPrice);
         ts = getTickSpacing(poolAddress);
         fee = gs.fee;
@@ -135,7 +135,7 @@ abstract contract UniV3likeQuoterCore {
             : sqrtPriceNextX96;
     }
 
-    function getPoolGlobalState(address pool) internal virtual view returns (GlobalState memory);
+    function getPoolGlobalState(address pool, bool zeroForOne) internal virtual view returns (GlobalState memory);
     
     function getLiquidity(address pool) internal virtual view returns (uint128);
 

@@ -7,7 +7,7 @@ import './lib/TickBitmap.sol';
 contract UniV3QuoterCore is UniV3likeQuoterCore {
 
     function getPoolGlobalState(
-        address pool
+        address pool, bool
     ) internal override view returns (GlobalState memory gs) {
         gs.fee = uint16(IUniswapV3Pool(pool).fee());
         (gs.startPrice, gs.startTick,,,,,) = IUniswapV3Pool(pool).slot0();
