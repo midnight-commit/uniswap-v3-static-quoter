@@ -141,6 +141,9 @@ const config: HardhatUserConfig = {
     polygon: polygonConfig,
     base: baseConfig,
     mantle: mantleConfig,
+    snowtrace: {
+      url: "https://api.avax.network/ext/bc/C/rpc",
+    },
   },
   namedAccounts: {
     deployer: {
@@ -157,8 +160,20 @@ const config: HardhatUserConfig = {
     only: [":UniswapV3StaticQuoter"],
   },
   etherscan: {
-    apiKey: ETHERSCAN_API_KEY,
+    apiKey: {
+      snowtrace: "snowtrace",
+      avalanche: "snowtrace",
+    },
     customChains: [
+      {
+        network: "snowtrace",
+        chainId: 43114,
+        urls: {
+          apiURL:
+            "https://api.routescan.io/v2/network/mainnet/evm/43114/etherscan",
+          browserURL: "https://avalanche.routescan.io",
+        },
+      },
       {
         network: "mainnet",
         chainId: 1,
