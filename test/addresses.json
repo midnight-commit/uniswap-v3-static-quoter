@@ -88,7 +88,8 @@
   "avalanche": {
     "tokens": {
       "usdc": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
-      "avax": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7"
+      "avax": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "usdt": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7"
     },
     "protocols": {
       "kyber": {
@@ -103,6 +104,19 @@
       },
       "phar": {
         "factory": "0xAE6E5c62328ade73ceefD42228528b70c8157D0d"
+      },
+      "blackhole": {
+        "factory": "0x512eb749541B7cf294be882D636218c84a5e9E5F"
+      }
+    }
+  },
+  "mantle": {
+    "protocols": {
+      "cleopatra": {
+        "factory": "0xAAA32926fcE6bE95ea2c51cB4Fcb60836D320C42"
+      },
+      "uniswapV3": {
+        "factory": "0x0d922Fb1Bc191F64970ac40376643808b4B74Df9"
       }
     }
   }
